@@ -1,19 +1,22 @@
 services:
   backend:
-    build: backend
+    build: .
     depends_on:
       database:
         condition: service_healthy
     environment:
-      - PGURI=postgres://postgres:secret@database/postgres
+      - PGURI=postgres://postgres:ellsdb@database/postgres
     ports:
       - "3000:3000"
   database:
     environment:
-      - POSTGRES_PASSWORD=secret
+      - POSTGRES_PASSWORD=ellsdb
     healthcheck:
       interval: 1s
       test: 'pg_isready --username=postgres'
     image: postgres
     volumes:
-      - ./data:/var/lib/postgresql/data
+      - postgres_db:/var/lib/postgresql/data
+
+volumes:
+  postgres_db:
