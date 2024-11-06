@@ -1,3 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --pri-col: #0CBABA;
+  --sec-col: #314CB6;
+  --white-col: #F5F5F5;
+  --black-col: #1D1D1D;
+  --Lblack-col: #232323;
+  --gray-col: #8A8A8A;
+}
+
+
 * {
   padding: 0;
   margin: 0;
@@ -16,7 +30,7 @@ body {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: var(--white-col);
   }
 
   a:hover {
