@@ -14,7 +14,7 @@ interface UserContextProps {
 }
 
 const UserContextProvider: FC<UserContextProps> = ({ children }) => {
-  const [user, setUser] = useState<User>();
+  const [user] = useState<User>();
 
   return (
     <UserContext.Provider value={user}>

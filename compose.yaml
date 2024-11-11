@@ -5,18 +5,18 @@ services:
       database:
         condition: service_healthy
     environment:
-      - PGURI=postgres://postgres:ellsdb@database/postgres
+      - PGURI=postgres://postgres:ceetdb@database/postgres
     ports:
       - "3000:3000"
   database:
     environment:
-      - POSTGRES_PASSWORD=ellsdb
+      - POSTGRES_PASSWORD=ceetdb
     healthcheck:
       interval: 1s
       test: 'pg_isready --username=postgres'
     image: postgres
     volumes:
-      - postgres_db:/var/lib/postgresql/data
+      - ceet_db:/var/lib/postgresql/data
 
 volumes:
-  postgres_db:
+  ceet_db:
