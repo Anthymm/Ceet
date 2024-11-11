@@ -1,1 +1,1 @@
-function SidebarComponent() {}
+// function SidebarComponent() {}
