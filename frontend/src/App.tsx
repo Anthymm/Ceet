@@ -1,8 +1,7 @@
-import { useState } from "react"
 import ProfileComponent from "./components/ProfileComponent"
 import SidebarComponent from "./components/SidebarComponent"
 import { ImSearch } from "react-icons/im"
-import FeedCardComponent from "./components/FeedCardComponent"
+import ContentRouter from "./Routers/ContentRouter"
 
 function App() {
   return (
@@ -11,9 +10,9 @@ function App() {
         <ImSearch className="text-white" />
         <ProfileComponent name="Admin Admin" />
       </nav>
-      <div className="h-screen w-screen">
+      <div className="h-screen w-screen flex">
         <SidebarComponent />
-        <FeedCardComponent />
+        <ContentRouter />
       </div>
     </>
   )
