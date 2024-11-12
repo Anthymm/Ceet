@@ -5,8 +5,6 @@ import { ImSearch } from "react-icons/im"
 import FeedCardComponent from "./components/FeedCardComponent"
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <nav className="flex w-100 justify-end h-[8vh] bg-lightblack items-center shadow">
