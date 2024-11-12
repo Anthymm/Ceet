@@ -2,6 +2,7 @@ import { useState } from "react"
 import ProfileComponent from "./components/ProfileComponent"
 import SidebarComponent from "./components/SidebarComponent"
 import { ImSearch } from "react-icons/im"
+import FeedCardComponent from "./components/FeedCardComponent"
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,6 +15,7 @@ function App() {
       </nav>
       <div className="h-screen w-screen">
         <SidebarComponent />
+        <FeedCardComponent />
       </div>
     </>
   )
