@@ -1,17 +1,19 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import FeedCardComponent from "../components/FeedCardComponent"
+import CardLayout from "../Layouts/CardContainerLayout"
+import ProfileCardComponent from "../components/ProfileCardComponent"
+import EventCardComponent from "../components/EventCardComponent"
 
 export default function ContentRouter() {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/">
-            <Route index element={<FeedCardComponent />} />
-            {/* <Route path="profile" element={<ProfileComponent/>} />*/}
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/" element={<CardLayout />}>
+          <Route index element={<FeedCardComponent />} />
+          <Route path="profile" element={<ProfileCardComponent />} />
+          <Route path="event" element={<EventCardComponent />} />
+        </Route>
+      </Routes>
     </>
   )
 }

@@ -3,6 +3,7 @@ import SidebarComponent from "./components/SidebarComponent"
 import { ImSearch } from "react-icons/im"
 import ContentRouter from "./Routers/ContentRouter"
 
+
 function App() {
   return (
     <>
@@ -10,7 +11,7 @@ function App() {
         <ImSearch className="text-white" />
         <ProfileComponent name="Admin Admin" />
       </nav>
-      <div className="h-screen w-screen flex">
+      <div className="h-screen w-screen flex bg-gray">
         <SidebarComponent />
         <ContentRouter />
       </div>

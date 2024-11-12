@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
+:root {
   --pri-col: #0CBABA;
   --sec-col: #314CB6;
   --white-col: #F5F5F5;
@@ -25,6 +25,9 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (prefers-color-scheme: light) {
