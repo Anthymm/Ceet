@@ -11,8 +11,8 @@
   --gray-col: #8A8A8A;
 }
 
-
 * {
+  font-family: "Raleway", serif;
   padding: 0;
   margin: 0;
 }
