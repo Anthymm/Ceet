@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import FeedCardComponent from "../components/FeedCardComponent"
-import CardLayout from "../Layouts/CardContainerLayout"
+import CardLayout from "../Layouts/CardLayout"
 import ProfileCardComponent from "../components/ProfileCardComponent"
 import EventCardComponent from "../components/EventCardComponent"
 
