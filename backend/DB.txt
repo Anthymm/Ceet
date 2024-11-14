@@ -7,5 +7,17 @@ CREATE TABLE users(
   CARS VARCHAR(255) []
 );
 
+CREATE TABLE events(
+  eventid SERIAL PRIMARY KEY,
+  eventtitle VARCHAR(255),
+  host VARCHAR(255),
+  location VARCHAR(255),
+  date DATE,
+  interested INT
+);
+
 INSERT INTO users (username, password, email, age)
+VALUES ()
+
+INSERT INTO events (eventtitle, host, location, date, interested)
 VALUES ()

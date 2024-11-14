@@ -29,8 +29,10 @@ app.use(express.static(path.join(path.resolve(), 'dist')))
 
 //Listeners
 const userRoutes = require("./routes/userRoutes");
+const feedRoutes = require("./routes/feedRoutes")
 
 app.use(userRoutes);
+app.use(feedRoutes)
 
 
 //Check ready
