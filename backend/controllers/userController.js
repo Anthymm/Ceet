@@ -7,7 +7,7 @@ exports.getUser = async (req, res) => {
     [username, password]
   )
   if (result.rows.length == 1) {
-    res.send({ callback: "success" })
+    res.send({ callback: "success", user: result.rows[0] })
   }
 }
 

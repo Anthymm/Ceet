@@ -9,7 +9,7 @@ function App() {
     <>
       <nav className="flex w-100 justify-end h-[8vh] bg-lightblack items-center shadow">
         <ImSearch className="text-white" />
-        <ProfileComponent name="Admin Admin" />
+        <ProfileComponent />
       </nav>
       <div className="h-screen w-screen flex bg-gray">
         <SidebarComponent />

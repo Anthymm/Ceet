@@ -1,9 +1,11 @@
-import { json, Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
+import { useUserContext } from "./context/UserContext"
 
 export default function Login() {
   const [usernameInput, setUsernameInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
+  const { loginUser } = useUserContext()
 
   const navigate = useNavigate()
 
@@ -12,6 +14,7 @@ export default function Login() {
       .then(res => res.json())
       .then((data: any) => {
         if (data.callback == "success") {
+          loginUser({ userid: data.user.userid, username: data.user.username })
           navigate("/app")
         }
       })
