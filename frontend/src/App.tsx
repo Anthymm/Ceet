@@ -11,7 +11,7 @@ function App() {
           <input type="text" className="bg-black rounded-md text-white"></input>
           <ImSearch className="text-white" />
         </div>
-        <ProfileComponent name="Admin Admin" />
+        <ProfileComponent />
       </nav>
       <div className="h-screen flex bg-gray">
         <SidebarComponent />

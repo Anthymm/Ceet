@@ -1,14 +1,14 @@
 import { useState } from "react";
+import { useUserContext } from "../context/UserContext";
 
-function ProfileComponent(props: { name: string }) {
-  const [processedName] = useState<string>(processName());
+function ProfileComponent() {
+  const { user } = useUserContext()
+  const [processedName] = useState<string>(processName(user?.username));
   const [showMore, setShowMore] = useState<boolean>(false);
 
-  function processName() {
-    let tempArray = props.name.split(" ");
-    tempArray[0] = tempArray[0].slice(0, 1);
-    tempArray[1] = tempArray[1].slice(0, 1);
-    return tempArray[0] + tempArray[1]
+
+  function processName(name: string) {
+    return name
   }
 
   return (

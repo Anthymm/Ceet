@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
 
-router.post('/api/users', userController.addUser);
 router.get('/api/users', userController.getUser);
-router.patch('/api/users', userController.changeUser);
+router.post('/api/users', userController.addUser);
+router.patch('/api/users', userController.updateUser);
 router.delete('/api/users', userController.removeUser);
 
 module.exports = router;

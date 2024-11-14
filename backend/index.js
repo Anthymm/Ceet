@@ -9,6 +9,8 @@ const client = new Client({
 })
 
 client.connect()
+
+module.exports = { client }
 //
 
 //Express
@@ -18,29 +20,15 @@ const express = require('express'),
 const app = express(),
   port = process.env.PORT || 3000
 
+app.use(express.json());
+
+app.use(express.urlencoded({ extended: true }));
+
 app.use(express.static(path.join(path.resolve(), 'dist')))
 //
 
-const userRoutes = require("./routes/userRoutes");
-
 //Listeners
-app.get("/api/users", async (req, res) => {
-  const result = await client.query(
-    "SELECT * FROM Users"
-  )
-  res.send(result)
-})
-
-app.get("/api/users", async (req, res) => {
-  const result = await client.query(
-    "SELECT * FROM Users WHERE Username = $1",
-    [req.query.username]
-  )
-  res.send(result.rows)
-
-})
-//
-
+const userRoutes = require("./routes/userRoutes");
 
 app.use(userRoutes);
 
