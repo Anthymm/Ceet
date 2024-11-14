@@ -1,6 +1,9 @@
 import { createContext, FC, ReactNode, useContext } from "react";
 import { useState } from "react";
 
+//LocalStorage här
+
+//
 interface User {
   userid: string
   username: string
@@ -22,7 +25,9 @@ export const useUserContext = () => useContext(UserContext)
 interface UserContextProps {
   children: ReactNode
 }
+//
 
+//
 const UserContextProvider: FC<UserContextProps> = ({ children }) => {
   const [user, setUser] = useState<User>();
 
@@ -36,5 +41,6 @@ const UserContextProvider: FC<UserContextProps> = ({ children }) => {
     </UserContext.Provider>
   );
 };
+//
 
 export default UserContextProvider
