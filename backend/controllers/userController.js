@@ -1,24 +1,24 @@
+const { client } = require('../index.js')
 
 exports.getUser = async (req, res) => {
+  const { username, password } = req.query
   const result = await client.query(
-    "SELECT * FROM users WHERE Username = $1",
-    [req.query.username]
+    "SELECT * FROM users WHERE username = $1 AND password = $2",
+    [username, password]
+  )
+  if (result.rows.length == 1) {
+    res.send({ callback: "success" })
+  }
+}
+
+exports.addUser = async (req, res) => {
+  const { username, password, email, age } = req.body
+  const result = await client.query(
+    "INSERT INTO users (username, password, email, age) VALUES ($1, $2, $3, $4)",
+    [username, password, email, age]
   )
   res.send(result.rows)
-
 }
-
-exports.addUser = (req, res) => {
-  const { username, password, email, age } = req.body
-  console.log(req.body)
-  // const result = await client.query(
-  //   "INSERT INTO users (username, password, email, age) VALUES ($1, $2, $3, $4)",
-  //   [req.body]
-  // )
-  // res.send(result)
-}
-
-
 
 exports.updateUser = async (req, res) => {
 
