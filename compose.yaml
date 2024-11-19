@@ -8,8 +8,6 @@ services:
         condition: service_healthy
     environment:
       - PGURI=postgres://postgres:ceetdb@database/postgres
-    ports:
-      - "3000:3000"
   database:
     environment:
       - POSTGRES_PASSWORD=ceetdb
@@ -20,6 +18,8 @@ services:
     volumes:
       - ceet_db:/var/lib/postgresql/data
   web:
+    depends_on:
+      - backend
     build:
       context: .
       target: nginx
