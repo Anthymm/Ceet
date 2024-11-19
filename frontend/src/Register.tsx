@@ -23,7 +23,7 @@ export default function Login() {
         method: "POST"
       })
         .then(res => res.json)
-        .then((data) => navigate("/app"))
+        .then(() => navigate("/app"))
     }
   }
   return (

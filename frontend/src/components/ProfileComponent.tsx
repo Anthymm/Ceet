@@ -3,6 +3,9 @@ import { useUserContext } from "../context/UserContext";
 
 function ProfileComponent() {
   const { user } = useUserContext()
+  if (!user) {
+    return
+  }
   const [processedName] = useState<string>(processName(user?.username));
   const [showMore, setShowMore] = useState<boolean>(false);
 
