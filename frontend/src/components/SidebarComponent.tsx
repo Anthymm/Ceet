@@ -2,7 +2,7 @@ import { MdKeyboardArrowLeft } from "react-icons/md"
 
 function SidebarComponent() {
   return (
-    <div className=" w-[15%] h-full bg-black  ">
+    <div className=" w-[15%] h-full bg-black min-w-52 ">
       <div className="w-full  flex justify-end">
         <MdKeyboardArrowLeft className="text-white size-10" />
       </div>
