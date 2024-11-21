@@ -18,8 +18,8 @@ export default function FeedCardComponent() {
     <>
       <h1>Feed <CreateEventModal /> </h1>
       <div className=" rounded-xl w-[95%] h-[87%] bg-black flex justify-center p-8">
-        {contentArray.map((item) => <div className="bg-white h-[50%] w-[85%] rounded-lg">
-          <div className="flex items-center justify-around pr-5">
+        {contentArray.map((item, index) => <div className="bg-white h-[50%] w-[85%] rounded-lg">
+          <div key={index} className="flex items-center justify-around pr-5">
             <p>Pic </p>
             <h1>{item.eventtitle}</h1>
             <div></div>

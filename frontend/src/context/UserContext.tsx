@@ -31,7 +31,16 @@ interface UserContextProps {
 const UserContextProvider: FC<UserContextProps> = ({ children }) => {
   const [user, setUser] = useState<User>();
 
+  if (!user) {
+    if (localStorage.getItem("account")) {
+      const store: any = localStorage.getItem("account")
+      setUser(JSON.parse(store))
+    }
+
+  }
+
   const loginUser = (user: User) => {
+    localStorage.setItem("account", JSON.stringify(user))
     setUser(user)
   }
 

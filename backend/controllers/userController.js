@@ -21,6 +21,14 @@ exports.addUser = async (req, res) => {
 }
 
 exports.updateUser = async (req, res) => {
+  if (req.body.tableVar == 'age') {
+    const { newValue, userid } = req.body
+    const result = await client.query(
+      "UPDATE users SET age = $1 WHERE userid = $2",
+      [newValue, userid]
+    )
+    res.send({ callback: "success", user: result.rows })
+  }
 
 }
 
