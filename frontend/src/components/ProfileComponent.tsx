@@ -9,7 +9,7 @@ function ProfileComponent() {
   const [processedName] = useState<string>(processName(user?.username));
   const [showMore, setShowMore] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false)
-  const [ageInput, setAgeInput] = useState<number>(0)
+  const [ageInput, setAgeInput] = useState<string>()
 
   function updateAge() {
     const queryBody = { tableVar: "age", newValue: ageInput, userid: user?.userid }

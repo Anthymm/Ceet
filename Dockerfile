@@ -1,3 +1,6 @@
+FROM postgres:latest AS database
+COPY ./init/init.sql /docker-entrypoint-initdb.d/
+
 FROM node:18-alpine AS backend
 WORKDIR /app
 COPY . /app

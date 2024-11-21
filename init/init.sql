@@ -17,7 +17,7 @@ CREATE TABLE events(
 );
 
 INSERT INTO users (username, password, email, age)
-VALUES ()
+VALUES ('Demo', 'Demo', 'Demo@Demo.com', 20);
 
 INSERT INTO events (eventtitle, host, location, date, interested)
-VALUES ()
+VALUES ('Fest', 'Stora Holm', 'Göteborg', '2021-01-01', 1);

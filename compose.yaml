@@ -7,16 +7,19 @@ services:
       database:
         condition: service_healthy
     environment:
-      - PGURI=postgres://postgres:ceetdb@database/postgres
+      - PGURI=${PGURI}
   database:
+    build:
+      context: .
+      target: database
     environment:
-      - POSTGRES_PASSWORD=ceetdb
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     healthcheck:
       interval: 1s
       test: 'pg_isready --username=postgres'
-    image: postgres
     volumes:
       - ceet_db:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d/
   web:
     depends_on:
       - backend
