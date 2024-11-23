@@ -14,4 +14,4 @@ ENTRYPOINT ["node", "index.js"]
 FROM nginx:latest AS nginx
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=backend /app/backend/dist /etc/nginx/html
-EXPOSE 80
+EXPOSE 8080
