@@ -11,6 +11,7 @@ RUN npm run build-frontend
 EXPOSE 3000
 ENTRYPOINT ["node", "index.js"]
 
-FROM nginx AS nginx
+FROM nginx:stable AS nginx
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=backend /app/backend/dist /usr/share/nginx/html
+EXPOSE 80
