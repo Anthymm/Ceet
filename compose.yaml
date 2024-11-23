@@ -23,8 +23,6 @@ services:
         condition: service_healthy
     environment:
       - PGURI=${PGURI}
-    ports:
-      - "3000:3000"
 
   web:
     build:
