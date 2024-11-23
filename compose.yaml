@@ -1,4 +1,19 @@
 services:
+  database:
+    build:
+      context: .
+      target: database
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    healthcheck:
+      test: [ "CMD", "pg_isready", "--username=postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - ceet_db:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d/
+
   backend:
     build:
       context: .
@@ -8,24 +23,15 @@ services:
         condition: service_healthy
     environment:
       - PGURI=${PGURI}
-  database:
-    build:
-      context: .
-      target: database
-    environment:
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-    healthcheck:
-      interval: 1s
-      test: 'pg_isready --username=postgres'
-    volumes:
-      - ceet_db:/var/lib/postgresql/data
-      - ./init:/docker-entrypoint-initdb.d/
+    ports:
+      - "3000:3000"
+
   web:
-    depends_on:
-      - backend
     build:
       context: .
       target: nginx
+    depends_on:
+      - backend
     ports:
       - "8080:80"
     environment:
