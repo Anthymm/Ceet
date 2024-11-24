@@ -6,9 +6,7 @@ exports.getUser = async (req, res) => {
     "SELECT * FROM users WHERE username = $1 AND password = $2",
     [username, password]
   )
-  if (result.rows.length == 1) {
-    res.send({ callback: "success", user: result.rows[0] })
-  }
+  res.send({ callback: "success", user: result.rows[0] })
 }
 
 exports.addUser = async (req, res) => {

@@ -11,7 +11,7 @@ export default function Login() {
   const navigate = useNavigate()
 
   function fetchUser() {
-    if (usernameInput || passwordInput || emailInput || ageInput == "") {
+    if (!usernameInput || !passwordInput || !emailInput || !ageInput) {
       console.log("du har glömt att fylla i en ruta")
     } else {
       const bodyQuery = { username: usernameInput, password: passwordInput, email: emailInput, age: ageInput }

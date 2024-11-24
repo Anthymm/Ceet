@@ -4,7 +4,9 @@ services:
       context: .
       target: database
     environment:
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_PASSWORD=ceetdb
+    ports:
+      - 3000:3000
     healthcheck:
       test: [ "CMD", "pg_isready", "--username=postgres" ]
       interval: 10s
@@ -22,7 +24,9 @@ services:
       database:
         condition: service_healthy
     environment:
-      - PGURI=${PGURI}
+      - PGURI=postgres://postgres:ceetdb@database/postgres
+    ports:
+      - 5432:5432
 
   web:
     build:

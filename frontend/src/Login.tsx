@@ -12,7 +12,8 @@ export default function Login() {
   function fetchUser() {
     fetch("/api/users?username=" + usernameInput + "&password=" + passwordInput)
       .then(res => res.json())
-      .then((data: any) => {
+      .then((data) => {
+        console.log(data)
         if (data.callback == "success") {
           loginUser({ userid: data.user.userid, username: data.user.username })
           navigate("/app")
